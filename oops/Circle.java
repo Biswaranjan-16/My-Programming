@@ -17,7 +17,7 @@ public class Circle {
 	  public static void main(String[] args) {
 	    Circle c=new Circle(13);
 	    System.out.println("area :"+c.area());
-	    Circle c1=new Circle(18);
+//	    Circle c1=new Circle(18);
 	    System.out.println("circumstances :"+c.circumstances());
 	  }
 
