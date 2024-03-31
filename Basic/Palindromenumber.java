@@ -8,7 +8,6 @@ public class Palindromenumber {
 System.out.println("Enter the number");
 num=sc.nextInt();
 for(int i=0;i<num;i++) {
-	
 	rem=num%10;
 	sum=(rem*10)+rem;
 	num=num/10;
