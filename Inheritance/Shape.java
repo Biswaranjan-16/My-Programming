@@ -1,4 +1,4 @@
-package oops.inheritance;
+package Inheritance;
 
 public class Shape {
  double getArea() {

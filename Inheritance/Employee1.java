@@ -1,4 +1,4 @@
-package oops.inheritance;
+package Inheritance;
 
  class Employee1 {
 String firstName;
