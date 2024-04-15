@@ -2,7 +2,7 @@ package Interface;
 
 
 public class Test {
- public static void main(String[] args) {
+ public static <CurrentAccount> void main(String[] args) {
      
      Bank bank = new Bank();
     
