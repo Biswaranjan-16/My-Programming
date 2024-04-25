@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-class Main {
+class String1 {
 
  public static void allInterleavings(String res, String P, String Q, Set out) {
      
@@ -46,5 +46,11 @@ class Main {
 public void reverseEachWordInString(String strGiven) {
 	
 	
+}
+
+
+public String checkSameAppearance(String str1) {
+	
+	return null;
 }
 }

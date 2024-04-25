@@ -15,4 +15,24 @@ public class Main {
      rectangle.draw();
      triangle.draw();
  }
+
+public String checkSameAppearance(String str1) {
+	
+	return null;
+}
+
+public void reverseEachWordInString(String strGiven) {
+	
+	
+}
+
+public String stringMixing(String str1, String str2) {
+	
+	return null;
+}
+
+public String stringMixing(String str1, String str2) {
+	
+	return null;
+}
 }
