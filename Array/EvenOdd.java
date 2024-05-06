@@ -8,7 +8,7 @@ public class EvenOdd {
         
         System.out.print("Enter the range to find even and odd numbers (start end): ");
         
-        int i = 0;
+        int i = 7;
 		int[]num=new int[i];
         System.out.println("Even numbers:");
         for ( i =0; i <= num.length; i++) {
