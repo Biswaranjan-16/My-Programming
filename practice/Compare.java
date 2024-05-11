@@ -1,3 +1,4 @@
+package practice;
 class Compare{
 public static void main(String args[]){
 int a=55,b=70;

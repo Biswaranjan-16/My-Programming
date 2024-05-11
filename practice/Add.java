@@ -1,3 +1,4 @@
+package practice;
 class Add{
       public static void main(String args[]){
          double a,b,c,add,divide;

@@ -1,3 +1,4 @@
+package practice;
 class Labelfor{
       public static void main(String args[]){
     aa:

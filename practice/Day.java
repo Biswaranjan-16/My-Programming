@@ -1,3 +1,5 @@
+
+package practice;
 class Day{
 public static void main(String args[]){
 int day=3;

@@ -1,3 +1,4 @@
+package practice;
 class Equal{
 public static void main(String args[]){
 int x=23,y=45;

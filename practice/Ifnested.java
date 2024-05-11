@@ -1,3 +1,4 @@
+package practice;
 class Ifnested{
 public static void main(String args[]){
 int age=45;

@@ -1,3 +1,4 @@
+package practice;
 class Rectangle{
 public static void main(String args[]){
 float a,b,c,d,area,perimeter;

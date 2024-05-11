@@ -1,8 +1,6 @@
 package String;
 
-import java.util.*;
 
-import Interface.Main;
 
 
 public class Color {

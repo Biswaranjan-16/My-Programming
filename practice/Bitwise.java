@@ -1,3 +1,4 @@
+package practice;
 class Bitwise{
 public static void main(String args[]){
 int x=-5;

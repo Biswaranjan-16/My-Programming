@@ -1,3 +1,4 @@
+package practice;
 import java.util.Scanner;
 class Alphabet{
       public static void main(String args[]){

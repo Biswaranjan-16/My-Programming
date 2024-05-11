@@ -1,3 +1,4 @@
+package practice;
 class Ifelsetest{
 public static void main(String args[]){
 int x=30;

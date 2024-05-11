@@ -1,3 +1,4 @@
+package practice;
 import java.util.Scanner;
 class Bill{
     public static void main(String args[]){
