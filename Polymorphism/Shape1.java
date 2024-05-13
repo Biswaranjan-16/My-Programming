@@ -36,14 +36,3 @@ class Triangle extends Shape1{
 		return 0.5 *height*base;
 	}
 }
-
-class m2{
-	public static void main(String[] args) {
-		Circle c=new Circle(5);
-		Rectangle r=new Rectangle(4,8);
-		Triangle t=new Triangle(3,6);
-		c.calculateArea();
-		r.calculateArea();
-		t.calculateArea();
-	}
-}
