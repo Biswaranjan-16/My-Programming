@@ -7,8 +7,9 @@ public class Testshape {
 			Shape Circle=new Circle(10);
 		System.out.println(Circle.calculatearea());	
 			System.out.println(Circle.calculateperimeter());
-//			Shape Rectangular=new Rectangular(14,10);
-//			Rectangular.calculatearea();
+			Shape Rectangular=new Rectangular(14,10);
+			System.out.println(Rectangular.calculatearea());
+			System.out.println(Rectangular.calculateperimeter());
 			}
 
 	}
