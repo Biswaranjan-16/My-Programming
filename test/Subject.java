@@ -9,7 +9,7 @@ abstract class Subject {
 
 	abstract void syllabus();
 
-	static void Learn(){
+void Learn(){
 		System.out.println("Preparing Right Now!");
 	}
 }
