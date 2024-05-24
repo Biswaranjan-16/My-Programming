@@ -20,7 +20,7 @@ public  Employee3(String name,String role) {
 class Manager extends Employee3{
 	double basesalary;
 	double bonus;
-	public Manager(String name,double basesalary,double bonus) {
+	public Manager(String name,String role,double basesalary,double bonus) {
 		super(name,"manager");
 		this.basesalary=basesalary;
 		this.bonus=bonus;
