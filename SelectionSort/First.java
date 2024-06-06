@@ -19,7 +19,7 @@ for(int i=0;i<arr.length-1;i++) {
 	int temp=arr[smallest];
 	arr[smallest]=arr[i];
 	arr[i]=temp;
-}
-printArray(arr);
-}
+  }
+     printArray(arr);
+     }
 }

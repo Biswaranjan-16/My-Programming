@@ -2,7 +2,7 @@ package String;
 
 public class Ignore {
 
-	public static void main(String[] args) {
+public static void main(String[] args) {
 
 String str="BISWARANJAN BISWAL";
 String str1="biswaranjan biswal";
