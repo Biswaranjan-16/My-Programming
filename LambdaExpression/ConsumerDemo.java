@@ -12,8 +12,8 @@ public class ConsumerDemo {
 	con.accept("miku");
 	con.accept("subhu");
 	
-	List<Integer> numbers=Arrays.asList(10,20,30,40);
-	numbers.forEach(i -> System.out.println(i));
+	//List<Integer> numbers=Arrays.asList(10,20,30,40);
+	//numbers.forEach(i -> System.out.println(i));
 
 	}
 }
