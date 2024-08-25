@@ -1,4 +1,4 @@
-package Stream;
+package StreamAPI;
 
 import java.util.stream.Stream;
 
