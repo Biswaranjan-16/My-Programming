@@ -21,3 +21,977 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2024-11-21 17:12:45.338 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.eclemma.core 4 0 2024-11-21 17:12:51.951
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.core [319]
+  Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.11,0.8.12)"
+    -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.11.202310140853"
+       org.jacoco.report [959]
+         Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.11,0.8.12)"
+           -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.internal.data"
+              org.jacoco.core [958]
+         Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.11,0.8.12)"
+           -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+         Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.11,0.8.12)"
+           -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.data,org.objectweb.asm"
+         Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.11,0.8.12)"
+           -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"
+  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.11,0.8.12)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.11.202310140853"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.0"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.6.0)(!(version>=9.7.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.6.0)(!(version>=9.7.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.6.0))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.0"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2073)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2064)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2004)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1967)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1883)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.eclemma.ui 4 0 2024-11-21 17:12:51.951
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.ui [321]
+  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.11,0.8.12)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.11.202310140853"
+       org.jacoco.core [958]
+  Unresolved requirement: Require-Bundle: org.eclipse.eclemma.core
+    -> Bundle-SymbolicName: org.eclipse.eclemma.core; bundle-version="3.1.8.202312121452"; singleton:="true"
+       org.eclipse.eclemma.core [319]
+         Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.11,0.8.12)"
+           -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.11.202310140853"
+              org.jacoco.report [959]
+                Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.11,0.8.12)"
+                  -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.internal.data"
+                Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.11,0.8.12)"
+                  -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+                Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.11,0.8.12)"
+                  -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.data,org.objectweb.asm"
+                Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.11,0.8.12)"
+                  -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"
+         Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.11,0.8.12)"
+           -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.11.202310140853"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.0"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.6.0)(!(version>=9.7.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.6.0)(!(version>=9.7.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.6.0))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.0"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2073)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2064)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2004)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1967)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1883)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.linuxtools.docker.core 4 0 2024-11-21 17:12:52.605
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.linuxtools.docker.core [1211]
+  Unresolved requirement: Require-Bundle: org.glassfish.jersey.core.jersey-client; bundle-version="3.1.5"
+    -> Bundle-SymbolicName: org.glassfish.jersey.core.jersey-client; bundle-version="3.1.8"
+       org.glassfish.jersey.core.jersey-client [1248]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.http; version="[3.1.0,4.0.0)"
+           -> Export-Package: org.glassfish.jersey.http; bundle-symbolic-name="org.glassfish.jersey.core.jersey-common"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.ws.rs.core"
+              org.glassfish.jersey.core.jersey-common [1249]
+                Unresolved requirement: Import-Package: org.glassfish.hk2.osgiresourcelocator; version="[1.0.0,2.0.0)"
+         Unresolved requirement: Import-Package: org.glassfish.jersey; version="[3.1.0,4.0.0)"
+           -> Export-Package: org.glassfish.jersey; bundle-symbolic-name="org.glassfish.jersey.core.jersey-common"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util"
+  Unresolved requirement: Import-Package: org.glassfish.jersey.apache.connector
+    -> Export-Package: org.glassfish.jersey.apache.connector; bundle-symbolic-name="org.glassfish.jersey.connectors.jersey-apache-connector"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core,org.apache.http.client,org.apache.http.client.methods,org.apache.http.impl.client,org.glassfish.jersey.client,org.glassfish.jersey.client.spi,org.glassfish.jersey.internal.l10n,org.glassfish.jersey.internal.util,org.glassfish.jersey.spi"
+       org.glassfish.jersey.connectors.jersey-apache-connector [1247]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.client; version="[3.1.0,4.0.0)"
+           -> Export-Package: org.glassfish.jersey.client; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.inject,jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey,org.glassfish.jersey.client.inject,org.glassfish.jersey.client.spi,org.glassfish.jersey.http,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util,org.glassfish.jersey.internal.util.collection,org.glassfish.jersey.message,org.glassfish.jersey.message.internal,org.glassfish.jersey.spi"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.client.innate; version="[3.1.0,4.0.0)"
+           -> Export-Package: org.glassfish.jersey.client.innate; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.ws.rs.core,org.glassfish.jersey.client"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2073)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2064)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2004)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1967)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1883)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.linuxtools.docker.ui 4 0 2024-11-21 17:12:52.605
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.linuxtools.docker.ui [1212]
+  Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=21))"
+  Unresolved requirement: Require-Bundle: org.eclipse.linuxtools.docker.core; bundle-version="1.0.0"
+    -> Bundle-SymbolicName: org.eclipse.linuxtools.docker.core; bundle-version="5.17.0.202410011219"; singleton:="true"
+       org.eclipse.linuxtools.docker.core [1211]
+         Unresolved requirement: Require-Bundle: org.glassfish.jersey.core.jersey-client; bundle-version="3.1.5"
+           -> Bundle-SymbolicName: org.glassfish.jersey.core.jersey-client; bundle-version="3.1.8"
+              org.glassfish.jersey.core.jersey-client [1248]
+                Unresolved requirement: Import-Package: org.glassfish.jersey.http; version="[3.1.0,4.0.0)"
+                  -> Export-Package: org.glassfish.jersey.http; bundle-symbolic-name="org.glassfish.jersey.core.jersey-common"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.ws.rs.core"
+                     org.glassfish.jersey.core.jersey-common [1249]
+                       Unresolved requirement: Import-Package: org.glassfish.hk2.osgiresourcelocator; version="[1.0.0,2.0.0)"
+                Unresolved requirement: Import-Package: org.glassfish.jersey; version="[3.1.0,4.0.0)"
+                  -> Export-Package: org.glassfish.jersey; bundle-symbolic-name="org.glassfish.jersey.core.jersey-common"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.apache.connector
+           -> Export-Package: org.glassfish.jersey.apache.connector; bundle-symbolic-name="org.glassfish.jersey.connectors.jersey-apache-connector"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core,org.apache.http.client,org.apache.http.client.methods,org.apache.http.impl.client,org.glassfish.jersey.client,org.glassfish.jersey.client.spi,org.glassfish.jersey.internal.l10n,org.glassfish.jersey.internal.util,org.glassfish.jersey.spi"
+              org.glassfish.jersey.connectors.jersey-apache-connector [1247]
+                Unresolved requirement: Import-Package: org.glassfish.jersey.client; version="[3.1.0,4.0.0)"
+                  -> Export-Package: org.glassfish.jersey.client; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.inject,jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey,org.glassfish.jersey.client.inject,org.glassfish.jersey.client.spi,org.glassfish.jersey.http,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util,org.glassfish.jersey.internal.util.collection,org.glassfish.jersey.message,org.glassfish.jersey.message.internal,org.glassfish.jersey.spi"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.client.innate; version="[3.1.0,4.0.0)"
+                  -> Export-Package: org.glassfish.jersey.client.innate; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.ws.rs.core,org.glassfish.jersey.client"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2073)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2064)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2004)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1967)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1883)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 4 0 2024-11-21 17:12:52.620
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.wildwebdeveloper.xml [1233]
+  Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=21))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2073)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2064)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2004)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1967)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1883)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.glassfish.jersey.core.jersey-common 4 0 2024-11-21 17:12:52.620
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.glassfish.jersey.core.jersey-common [1249]
+  Unresolved requirement: Import-Package: org.glassfish.hk2.osgiresourcelocator; version="[1.0.0,2.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2073)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2064)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2004)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1967)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1883)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.ui 2 0 2024-11-21 17:13:19.820
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2024-11-21 17:13:19.820
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 2 0 2024-11-21 17:13:20.193
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2024-11-21 17:13:20.193
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 2 0 2024-11-21 17:13:20.230
+!MESSAGE Warnings while parsing the images from the 'org.eclipse.ui.commandImages' extension point.
+!SUBENTRY 1 org.eclipse.ui 2 0 2024-11-21 17:13:20.230
+!MESSAGE Cannot bind to an undefined command: plug-in='com.genuitec.eclipse.theming.ui', id='com.genuitec.myeclipse.help.darktheme.commandid'
+
+!ENTRY com.genuitec.eclipse.theming.ui 1 0 2024-11-21 17:13:21.061
+!MESSAGE A DevStyle Theme is being activated on this workspace; preparing colors and configuration
+
+!ENTRY com.genuitec.eclipse.theming.ui 1 0 2024-11-21 17:13:21.077
+!MESSAGE DevStyle has archived current color configurations to alternate preferences - will be restored when switching out of the DevStyle Theme
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-11-21 17:13:25.439
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\biswa'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2024-11-21 17:13:25.605
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.eclemma.ui.CoverageView" id and the "Coverage" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.ecf.provider.filetransfer.httpclient5 4 0 2024-11-21 17:13:30.725
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.ServiceException: Exception in org.apache.felix.scr.impl.manager.SingleComponentManager.getService()
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:236)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.getService(ServiceFactoryUse.java:118)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceConsumer$2.getService(ServiceConsumer.java:48)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.getService(ServiceRegistrationImpl.java:580)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.getService(ServiceRegistry.java:548)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.getService(BundleContextImpl.java:672)
+	at org.osgi.util.tracker.ServiceTracker.addingService(ServiceTracker.java:419)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerAdding(ServiceTracker.java:947)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerAdding(ServiceTracker.java:1)
+	at org.osgi.util.tracker.AbstractTracked.trackAdding(AbstractTracked.java:257)
+	at org.osgi.util.tracker.AbstractTracked.trackInitial(AbstractTracked.java:184)
+	at org.osgi.util.tracker.ServiceTracker.open(ServiceTracker.java:324)
+	at org.osgi.util.tracker.ServiceTracker.open(ServiceTracker.java:267)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient5.Activator.getHttpClientFactory(Activator.java:243)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient5.Activator.registerHttpClient(Activator.java:290)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient5.Activator.getRetrieveHttpClient(Activator.java:281)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransferFactory.newInstance(HttpClientRetrieveFileTransferFactory.java:25)
+	at org.eclipse.ecf.internal.provider.filetransfer.Activator.getFileTransfer(Activator.java:614)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.MultiProtocolRetrieveAdapter.sendRetrieveRequest(MultiProtocolRetrieveAdapter.java:94)
+	at org.eclipse.oomph.setup.internal.core.util.ECFURIHandlerImpl$InputStreamConnectionHandler.sendConnectionRequest(ECFURIHandlerImpl.java:1943)
+	at org.eclipse.oomph.setup.internal.core.util.ECFURIHandlerImpl$ConnectionHandler.process(ECFURIHandlerImpl.java:1642)
+	at org.eclipse.oomph.setup.internal.core.util.ECFURIHandlerImpl.createInputStream(ECFURIHandlerImpl.java:321)
+	at org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl.createInputStream(ExtensibleURIConverterImpl.java:358)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.load(ResourceImpl.java:1314)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.handleArchiveRedirection(SetupCoreUtil.java:696)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.configureResourceSet(SetupCoreUtil.java:474)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.configureResourceSet(SetupCoreUtil.java:268)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.createResourceSet(SetupCoreUtil.java:262)
+	at org.eclipse.oomph.setup.ui.recorder.RecorderManager.<clinit>(RecorderManager.java:121)
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin.performStartup(SetupUIPlugin.java:218)
+	at org.eclipse.oomph.setup.ui.EarlyStartup.earlyStartup(EarlyStartup.java:23)
+	at org.eclipse.oomph.internal.ui.EarlyStart.run(EarlyStart.java:119)
+	at org.eclipse.oomph.internal.ui.EarlyStart$1.run(EarlyStart.java:98)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.LinkageError: loader constraint violation: loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @73086d0a wants to load class org.apache.hc.client5.http.impl.classic.HttpClientBuilder. A different class with the same name was previously loaded by org.eclipse.osgi.internal.loader.EquinoxClassLoader @175cd7f0. (org.apache.hc.client5.http.impl.classic.HttpClientBuilder is in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @175cd7f0, parent loader 'platform')
+	at java.base/java.lang.Class.getDeclaredConstructors0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:3373)
+	at java.base/java.lang.Class.getConstructors(Class.java:2060)
+	at org.apache.felix.scr.impl.inject.internal.ComponentConstructorImpl.<init>(ComponentConstructorImpl.java:98)
+	at org.apache.felix.scr.impl.inject.internal.ComponentMethodsImpl.initComponentMethods(ComponentMethodsImpl.java:110)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.initDependencyManagers(AbstractComponentManager.java:1029)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.collectDependencies(AbstractComponentManager.java:1057)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getServiceInternal(SingleComponentManager.java:955)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getService(SingleComponentManager.java:920)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse$1.run(ServiceFactoryUse.java:226)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:318)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:223)
+	... 33 more
+
+!ENTRY org.eclipse.oomph.ui 4 0 2024-11-21 17:13:30.726
+!MESSAGE loader constraint violation: loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @73086d0a wants to load class org.apache.hc.client5.http.impl.classic.HttpClientBuilder. A different class with the same name was previously loaded by org.eclipse.osgi.internal.loader.EquinoxClassLoader @175cd7f0. (org.apache.hc.client5.http.impl.classic.HttpClientBuilder is in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @175cd7f0, parent loader 'platform')
+!STACK 0
+java.lang.LinkageError: loader constraint violation: loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @73086d0a wants to load class org.apache.hc.client5.http.impl.classic.HttpClientBuilder. A different class with the same name was previously loaded by org.eclipse.osgi.internal.loader.EquinoxClassLoader @175cd7f0. (org.apache.hc.client5.http.impl.classic.HttpClientBuilder is in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @175cd7f0, parent loader 'platform')
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient5.Activator.getHttpClientFactory(Activator.java:247)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient5.Activator.registerHttpClient(Activator.java:290)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient5.Activator.getRetrieveHttpClient(Activator.java:281)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransferFactory.newInstance(HttpClientRetrieveFileTransferFactory.java:25)
+	at org.eclipse.ecf.internal.provider.filetransfer.Activator.getFileTransfer(Activator.java:614)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.MultiProtocolRetrieveAdapter.sendRetrieveRequest(MultiProtocolRetrieveAdapter.java:94)
+	at org.eclipse.oomph.setup.internal.core.util.ECFURIHandlerImpl$InputStreamConnectionHandler.sendConnectionRequest(ECFURIHandlerImpl.java:1943)
+	at org.eclipse.oomph.setup.internal.core.util.ECFURIHandlerImpl$ConnectionHandler.process(ECFURIHandlerImpl.java:1642)
+	at org.eclipse.oomph.setup.internal.core.util.ECFURIHandlerImpl.createInputStream(ECFURIHandlerImpl.java:321)
+	at org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl.createInputStream(ExtensibleURIConverterImpl.java:358)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.load(ResourceImpl.java:1314)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.handleArchiveRedirection(SetupCoreUtil.java:696)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.configureResourceSet(SetupCoreUtil.java:474)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.configureResourceSet(SetupCoreUtil.java:268)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.createResourceSet(SetupCoreUtil.java:262)
+	at org.eclipse.oomph.setup.ui.recorder.RecorderManager.<clinit>(RecorderManager.java:121)
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin.performStartup(SetupUIPlugin.java:218)
+	at org.eclipse.oomph.setup.ui.EarlyStartup.earlyStartup(EarlyStartup.java:23)
+	at org.eclipse.oomph.internal.ui.EarlyStart.run(EarlyStart.java:119)
+	at org.eclipse.oomph.internal.ui.EarlyStart$1.run(EarlyStart.java:98)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.ui.ide 4 4 2024-11-21 17:15:03.847
+!MESSAGE Not properly disposed SWT resource
+!STACK 0
+java.lang.Error: SWT Resource was not properly disposed
+	at org.eclipse.swt.graphics.Resource.initNonDisposeTracking(Resource.java:172)
+	at org.eclipse.swt.graphics.Resource.<init>(Resource.java:120)
+	at org.eclipse.swt.graphics.Image.<init>(Image.java:713)
+	at com.genuitec.eclipse.webicons.IconImageDescriptor.createImage(IconImageDescriptor.java:46)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:289)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:267)
+	at com.genuitec.eclipse.startup.dialogs.custom.UIHelper.createIcon(UIHelper.java:342)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameControl.createBrowseOnHover(WorkspaceNameControl.java:279)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameControl.createNameLabel(WorkspaceNameControl.java:233)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameControl.<init>(WorkspaceNameControl.java:183)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceControl.createWorkspaceNameControl(WorkspaceControl.java:115)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceControl.createControl(WorkspaceControl.java:43)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspacesTabFactory.createTabArea(WorkspacesTabFactory.java:85)
+	at com.genuitec.eclipse.startup.dialogs.tabs.CodeFullyTabFactory.createContents(CodeFullyTabFactory.java:139)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstactSideTabDialog.createTabs(AbstactSideTabDialog.java:136)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstactSideTabDialog.createContents(AbstactSideTabDialog.java:122)
+	at org.eclipse.jface.window.Window.create(Window.java:431)
+	at org.eclipse.jface.window.Window.open(Window.java:788)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstactSideTabDialog.open(AbstactSideTabDialog.java:61)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstractWelcomeDialog.prompt(AbstractWelcomeDialog.java:136)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.ui.internal.ide.actions.OpenWorkspaceAction.promptForWorkspace(OpenWorkspaceAction.java:283)
+	at org.eclipse.ui.internal.ide.actions.OpenWorkspaceAction.run(OpenWorkspaceAction.java:203)
+	at org.eclipse.ui.internal.ide.actions.OpenWorkspaceAction$OpenDialogAction.run(OpenWorkspaceAction.java:62)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:581)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$4(ActionContributionItem.java:415)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4274)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1090)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1075)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:778)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$8(ActionContributionItem.java:1206)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4274)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4072)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3660)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:152)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+
+!ENTRY org.eclipse.ui.ide 4 4 2024-11-21 17:15:03.849
+!MESSAGE Not properly disposed SWT resource
+!STACK 0
+java.lang.Error: SWT Resource was not properly disposed
+	at org.eclipse.swt.graphics.Resource.initNonDisposeTracking(Resource.java:172)
+	at org.eclipse.swt.graphics.Resource.<init>(Resource.java:120)
+	at org.eclipse.swt.graphics.Image.<init>(Image.java:713)
+	at com.genuitec.eclipse.webicons.IconImageDescriptor.createImage(IconImageDescriptor.java:46)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:289)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:267)
+	at com.genuitec.eclipse.startup.dialogs.custom.UIHelper.createIcon(UIHelper.java:342)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameControl.createBrowseOnHover(WorkspaceNameControl.java:279)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameLink.createNameLabel(WorkspaceNameLink.java:104)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameControl.<init>(WorkspaceNameControl.java:183)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameLink.<init>(WorkspaceNameLink.java:79)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceControl.createWorkspaceNameControl(WorkspaceControl.java:117)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceControl.createControl(WorkspaceControl.java:43)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspacesTabFactory.createTabArea(WorkspacesTabFactory.java:85)
+	at com.genuitec.eclipse.startup.dialogs.tabs.CodeFullyTabFactory.createContents(CodeFullyTabFactory.java:139)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstactSideTabDialog.createTabs(AbstactSideTabDialog.java:136)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstactSideTabDialog.createContents(AbstactSideTabDialog.java:122)
+	at org.eclipse.jface.window.Window.create(Window.java:431)
+	at org.eclipse.jface.window.Window.open(Window.java:788)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstactSideTabDialog.open(AbstactSideTabDialog.java:61)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstractWelcomeDialog.prompt(AbstractWelcomeDialog.java:136)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.ui.internal.ide.actions.OpenWorkspaceAction.promptForWorkspace(OpenWorkspaceAction.java:283)
+	at org.eclipse.ui.internal.ide.actions.OpenWorkspaceAction.run(OpenWorkspaceAction.java:203)
+	at org.eclipse.ui.internal.ide.actions.OpenWorkspaceAction$OpenDialogAction.run(OpenWorkspaceAction.java:62)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:581)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$4(ActionContributionItem.java:415)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4274)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1090)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1075)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:778)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$8(ActionContributionItem.java:1206)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4274)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4072)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3660)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:152)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+
+!ENTRY org.eclipse.ui.ide 4 4 2024-11-21 17:15:03.852
+!MESSAGE Not properly disposed SWT resource
+!STACK 0
+java.lang.Error: SWT Resource was not properly disposed
+	at org.eclipse.swt.graphics.Resource.initNonDisposeTracking(Resource.java:172)
+	at org.eclipse.swt.graphics.Resource.<init>(Resource.java:120)
+	at org.eclipse.swt.graphics.Image.<init>(Image.java:713)
+	at com.genuitec.eclipse.webicons.IconImageDescriptor.createImage(IconImageDescriptor.java:46)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:289)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:267)
+	at com.genuitec.eclipse.startup.dialogs.custom.UIHelper.createIcon(UIHelper.java:342)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameControl.createBrowseOnHover(WorkspaceNameControl.java:279)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameLink.createNameLabel(WorkspaceNameLink.java:104)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameControl.<init>(WorkspaceNameControl.java:183)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameLink.<init>(WorkspaceNameLink.java:79)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceControl.createWorkspaceNameControl(WorkspaceControl.java:117)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceControl.createControl(WorkspaceControl.java:43)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspacesTabFactory.createTabArea(WorkspacesTabFactory.java:85)
+	at com.genuitec.eclipse.startup.dialogs.tabs.CodeFullyTabFactory.createContents(CodeFullyTabFactory.java:139)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstactSideTabDialog.createTabs(AbstactSideTabDialog.java:136)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstactSideTabDialog.createContents(AbstactSideTabDialog.java:122)
+	at org.eclipse.jface.window.Window.create(Window.java:431)
+	at org.eclipse.jface.window.Window.open(Window.java:788)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstactSideTabDialog.open(AbstactSideTabDialog.java:61)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstractWelcomeDialog.prompt(AbstractWelcomeDialog.java:136)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.ui.internal.ide.actions.OpenWorkspaceAction.promptForWorkspace(OpenWorkspaceAction.java:283)
+	at org.eclipse.ui.internal.ide.actions.OpenWorkspaceAction.run(OpenWorkspaceAction.java:203)
+	at org.eclipse.ui.internal.ide.actions.OpenWorkspaceAction$OpenDialogAction.run(OpenWorkspaceAction.java:62)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:581)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$4(ActionContributionItem.java:415)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4274)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1090)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1075)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:778)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$8(ActionContributionItem.java:1206)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4274)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4072)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3660)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:152)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+
+!ENTRY org.eclipse.ui.ide 4 4 2024-11-21 17:15:03.855
+!MESSAGE Not properly disposed SWT resource
+!STACK 0
+java.lang.Error: SWT Resource was not properly disposed
+	at org.eclipse.swt.graphics.Resource.initNonDisposeTracking(Resource.java:172)
+	at org.eclipse.swt.graphics.Resource.<init>(Resource.java:120)
+	at org.eclipse.swt.graphics.Image.<init>(Image.java:713)
+	at com.genuitec.eclipse.webicons.IconImageDescriptor.createImage(IconImageDescriptor.java:46)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:289)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:267)
+	at com.genuitec.eclipse.startup.dialogs.custom.UIHelper.createIcon(UIHelper.java:342)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameControl.createBrowseOnHover(WorkspaceNameControl.java:279)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameLink.createNameLabel(WorkspaceNameLink.java:104)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameControl.<init>(WorkspaceNameControl.java:183)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameLink.<init>(WorkspaceNameLink.java:79)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceControl.createWorkspaceNameControl(WorkspaceControl.java:117)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceControl.createControl(WorkspaceControl.java:43)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspacesTabFactory.createTabArea(WorkspacesTabFactory.java:85)
+	at com.genuitec.eclipse.startup.dialogs.tabs.CodeFullyTabFactory.createContents(CodeFullyTabFactory.java:139)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstactSideTabDialog.createTabs(AbstactSideTabDialog.java:136)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstactSideTabDialog.createContents(AbstactSideTabDialog.java:122)
+	at org.eclipse.jface.window.Window.create(Window.java:431)
+	at org.eclipse.jface.window.Window.open(Window.java:788)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstactSideTabDialog.open(AbstactSideTabDialog.java:61)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstractWelcomeDialog.prompt(AbstractWelcomeDialog.java:136)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.ui.internal.ide.actions.OpenWorkspaceAction.promptForWorkspace(OpenWorkspaceAction.java:283)
+	at org.eclipse.ui.internal.ide.actions.OpenWorkspaceAction.run(OpenWorkspaceAction.java:203)
+	at org.eclipse.ui.internal.ide.actions.OpenWorkspaceAction$OpenDialogAction.run(OpenWorkspaceAction.java:62)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:581)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$4(ActionContributionItem.java:415)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4274)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1090)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1075)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:778)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$8(ActionContributionItem.java:1206)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4274)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4072)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3660)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:152)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+
+!ENTRY org.eclipse.ui.ide 4 4 2024-11-21 17:15:03.856
+!MESSAGE Not properly disposed SWT resource
+!STACK 0
+java.lang.Error: SWT Resource was not properly disposed
+	at org.eclipse.swt.graphics.Resource.initNonDisposeTracking(Resource.java:172)
+	at org.eclipse.swt.graphics.Resource.<init>(Resource.java:120)
+	at org.eclipse.swt.graphics.Image.<init>(Image.java:713)
+	at com.genuitec.eclipse.webicons.IconImageDescriptor.createImage(IconImageDescriptor.java:46)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:289)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:267)
+	at com.genuitec.eclipse.startup.dialogs.custom.UIHelper.createIcon(UIHelper.java:342)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameControl.createBrowseOnHover(WorkspaceNameControl.java:279)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameLink.createNameLabel(WorkspaceNameLink.java:104)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameControl.<init>(WorkspaceNameControl.java:183)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceNameLink.<init>(WorkspaceNameLink.java:79)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceControl.createWorkspaceNameControl(WorkspaceControl.java:117)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspaceControl.createControl(WorkspaceControl.java:43)
+	at com.genuitec.eclipse.startup.dialogs.tabs.WorkspacesTabFactory.createTabArea(WorkspacesTabFactory.java:85)
+	at com.genuitec.eclipse.startup.dialogs.tabs.CodeFullyTabFactory.createContents(CodeFullyTabFactory.java:139)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstactSideTabDialog.createTabs(AbstactSideTabDialog.java:136)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstactSideTabDialog.createContents(AbstactSideTabDialog.java:122)
+	at org.eclipse.jface.window.Window.create(Window.java:431)
+	at org.eclipse.jface.window.Window.open(Window.java:788)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstactSideTabDialog.open(AbstactSideTabDialog.java:61)
+	at com.genuitec.eclipse.startup.dialogs.custom.AbstractWelcomeDialog.prompt(AbstractWelcomeDialog.java:136)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.ui.internal.ide.actions.OpenWorkspaceAction.promptForWorkspace(OpenWorkspaceAction.java:283)
+	at org.eclipse.ui.internal.ide.actions.OpenWorkspaceAction.run(OpenWorkspaceAction.java:203)
+	at org.eclipse.ui.internal.ide.actions.OpenWorkspaceAction$OpenDialogAction.run(OpenWorkspaceAction.java:62)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:581)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$4(ActionContributionItem.java:415)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4274)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1090)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1075)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:778)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$8(ActionContributionItem.java:1206)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4274)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4072)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3660)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:152)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+!SESSION 2024-12-06 10:37:21.238 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.eclemma.core 4 0 2024-12-06 10:37:35.356
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.core [319]
+  Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.11,0.8.12)"
+    -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.11.202310140853"
+       org.jacoco.report [959]
+         Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.11,0.8.12)"
+           -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.internal.data"
+              org.jacoco.core [958]
+         Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.11,0.8.12)"
+           -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"
+         Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.11,0.8.12)"
+           -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.data,org.objectweb.asm"
+         Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.11,0.8.12)"
+           -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.11,0.8.12)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.11.202310140853"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.0"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.6.0)(!(version>=9.7.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.6.0)(!(version>=9.7.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.6.0))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.0"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2073)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2064)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2004)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1967)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1883)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.eclemma.ui 4 0 2024-12-06 10:37:35.356
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.ui [321]
+  Unresolved requirement: Require-Bundle: org.eclipse.eclemma.core
+    -> Bundle-SymbolicName: org.eclipse.eclemma.core; bundle-version="3.1.8.202312121452"; singleton:="true"
+       org.eclipse.eclemma.core [319]
+         Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.11,0.8.12)"
+           -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.11.202310140853"
+              org.jacoco.report [959]
+                Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.11,0.8.12)"
+                  -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.internal.data"
+                     org.jacoco.core [958]
+                Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.11,0.8.12)"
+                  -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"
+                Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.11,0.8.12)"
+                  -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.data,org.objectweb.asm"
+                Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.11,0.8.12)"
+                  -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+         Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.11,0.8.12)"
+           -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.11.202310140853"
+  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.11,0.8.12)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.11.202310140853"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.0"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.6.0)(!(version>=9.7.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.6.0)(!(version>=9.7.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.6.0))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.0"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2073)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2064)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2004)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1967)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1883)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.linuxtools.docker.core 4 0 2024-12-06 10:37:36.394
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.linuxtools.docker.core [1211]
+  Unresolved requirement: Require-Bundle: org.glassfish.jersey.core.jersey-client; bundle-version="3.1.5"
+    -> Bundle-SymbolicName: org.glassfish.jersey.core.jersey-client; bundle-version="3.1.8"
+       org.glassfish.jersey.core.jersey-client [1248]
+         Unresolved requirement: Import-Package: org.glassfish.jersey; version="[3.1.0,4.0.0)"
+           -> Export-Package: org.glassfish.jersey; bundle-symbolic-name="org.glassfish.jersey.core.jersey-common"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util"
+              org.glassfish.jersey.core.jersey-common [1249]
+                Unresolved requirement: Import-Package: org.glassfish.hk2.osgiresourcelocator; version="[1.0.0,2.0.0)"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.http; version="[3.1.0,4.0.0)"
+           -> Export-Package: org.glassfish.jersey.http; bundle-symbolic-name="org.glassfish.jersey.core.jersey-common"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.ws.rs.core"
+  Unresolved requirement: Import-Package: org.glassfish.jersey.apache.connector
+    -> Export-Package: org.glassfish.jersey.apache.connector; bundle-symbolic-name="org.glassfish.jersey.connectors.jersey-apache-connector"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core,org.apache.http.client,org.apache.http.client.methods,org.apache.http.impl.client,org.glassfish.jersey.client,org.glassfish.jersey.client.spi,org.glassfish.jersey.internal.l10n,org.glassfish.jersey.internal.util,org.glassfish.jersey.spi"
+       org.glassfish.jersey.connectors.jersey-apache-connector [1247]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.client; version="[3.1.0,4.0.0)"
+           -> Export-Package: org.glassfish.jersey.client; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.inject,jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey,org.glassfish.jersey.client.inject,org.glassfish.jersey.client.spi,org.glassfish.jersey.http,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util,org.glassfish.jersey.internal.util.collection,org.glassfish.jersey.message,org.glassfish.jersey.message.internal,org.glassfish.jersey.spi"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.client.innate; version="[3.1.0,4.0.0)"
+           -> Export-Package: org.glassfish.jersey.client.innate; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.ws.rs.core,org.glassfish.jersey.client"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2073)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2064)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2004)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1967)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1883)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.linuxtools.docker.ui 4 0 2024-12-06 10:37:36.410
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.linuxtools.docker.ui [1212]
+  Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=21))"
+  Unresolved requirement: Require-Bundle: org.eclipse.linuxtools.docker.core; bundle-version="1.0.0"
+    -> Bundle-SymbolicName: org.eclipse.linuxtools.docker.core; bundle-version="5.17.0.202410011219"; singleton:="true"
+       org.eclipse.linuxtools.docker.core [1211]
+         Unresolved requirement: Require-Bundle: org.glassfish.jersey.core.jersey-client; bundle-version="3.1.5"
+           -> Bundle-SymbolicName: org.glassfish.jersey.core.jersey-client; bundle-version="3.1.8"
+              org.glassfish.jersey.core.jersey-client [1248]
+                Unresolved requirement: Import-Package: org.glassfish.jersey; version="[3.1.0,4.0.0)"
+                  -> Export-Package: org.glassfish.jersey; bundle-symbolic-name="org.glassfish.jersey.core.jersey-common"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util"
+                     org.glassfish.jersey.core.jersey-common [1249]
+                       Unresolved requirement: Import-Package: org.glassfish.hk2.osgiresourcelocator; version="[1.0.0,2.0.0)"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.http; version="[3.1.0,4.0.0)"
+                  -> Export-Package: org.glassfish.jersey.http; bundle-symbolic-name="org.glassfish.jersey.core.jersey-common"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.ws.rs.core"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.apache.connector
+           -> Export-Package: org.glassfish.jersey.apache.connector; bundle-symbolic-name="org.glassfish.jersey.connectors.jersey-apache-connector"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core,org.apache.http.client,org.apache.http.client.methods,org.apache.http.impl.client,org.glassfish.jersey.client,org.glassfish.jersey.client.spi,org.glassfish.jersey.internal.l10n,org.glassfish.jersey.internal.util,org.glassfish.jersey.spi"
+              org.glassfish.jersey.connectors.jersey-apache-connector [1247]
+                Unresolved requirement: Import-Package: org.glassfish.jersey.client; version="[3.1.0,4.0.0)"
+                  -> Export-Package: org.glassfish.jersey.client; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.inject,jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey,org.glassfish.jersey.client.inject,org.glassfish.jersey.client.spi,org.glassfish.jersey.http,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util,org.glassfish.jersey.internal.util.collection,org.glassfish.jersey.message,org.glassfish.jersey.message.internal,org.glassfish.jersey.spi"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.client.innate; version="[3.1.0,4.0.0)"
+                  -> Export-Package: org.glassfish.jersey.client.innate; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="3.1.8"; version="3.1.8"; uses:="jakarta.ws.rs.core,org.glassfish.jersey.client"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2073)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2064)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2004)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1967)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1883)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 4 0 2024-12-06 10:37:36.414
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.wildwebdeveloper.xml [1233]
+  Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=21))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2073)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2064)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2004)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1967)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1883)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.glassfish.jersey.core.jersey-common 4 0 2024-12-06 10:37:36.414
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.glassfish.jersey.core.jersey-common [1249]
+  Unresolved requirement: Import-Package: org.glassfish.hk2.osgiresourcelocator; version="[1.0.0,2.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2073)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2064)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2004)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1967)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1883)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.ui 2 0 2024-12-06 10:37:51.157
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2024-12-06 10:37:51.157
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 2 0 2024-12-06 10:37:51.544
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2024-12-06 10:37:51.544
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-12-06 10:37:57.194
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\biswa'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ecf.provider.filetransfer.httpclient5 4 0 2024-12-06 10:38:02.576
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.ServiceException: Exception in org.apache.felix.scr.impl.manager.SingleComponentManager.getService()
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:236)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.getService(ServiceFactoryUse.java:118)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceConsumer$2.getService(ServiceConsumer.java:48)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.getService(ServiceRegistrationImpl.java:580)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.getService(ServiceRegistry.java:548)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.getService(BundleContextImpl.java:672)
+	at org.osgi.util.tracker.ServiceTracker.addingService(ServiceTracker.java:419)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerAdding(ServiceTracker.java:947)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerAdding(ServiceTracker.java:1)
+	at org.osgi.util.tracker.AbstractTracked.trackAdding(AbstractTracked.java:257)
+	at org.osgi.util.tracker.AbstractTracked.trackInitial(AbstractTracked.java:184)
+	at org.osgi.util.tracker.ServiceTracker.open(ServiceTracker.java:324)
+	at org.osgi.util.tracker.ServiceTracker.open(ServiceTracker.java:267)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient5.Activator.getHttpClientFactory(Activator.java:243)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient5.Activator.registerHttpClient(Activator.java:290)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient5.Activator.getRetrieveHttpClient(Activator.java:281)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransferFactory.newInstance(HttpClientRetrieveFileTransferFactory.java:25)
+	at org.eclipse.ecf.internal.provider.filetransfer.Activator.getFileTransfer(Activator.java:614)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.MultiProtocolRetrieveAdapter.sendRetrieveRequest(MultiProtocolRetrieveAdapter.java:94)
+	at org.eclipse.oomph.setup.internal.core.util.ECFURIHandlerImpl$InputStreamConnectionHandler.sendConnectionRequest(ECFURIHandlerImpl.java:1943)
+	at org.eclipse.oomph.setup.internal.core.util.ECFURIHandlerImpl$ConnectionHandler.process(ECFURIHandlerImpl.java:1642)
+	at org.eclipse.oomph.setup.internal.core.util.ECFURIHandlerImpl.createInputStream(ECFURIHandlerImpl.java:321)
+	at org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl.createInputStream(ExtensibleURIConverterImpl.java:358)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.load(ResourceImpl.java:1314)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.handleArchiveRedirection(SetupCoreUtil.java:696)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.configureResourceSet(SetupCoreUtil.java:474)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.configureResourceSet(SetupCoreUtil.java:268)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.createResourceSet(SetupCoreUtil.java:262)
+	at org.eclipse.oomph.setup.ui.recorder.RecorderManager.<clinit>(RecorderManager.java:121)
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin.performStartup(SetupUIPlugin.java:218)
+	at org.eclipse.oomph.setup.ui.EarlyStartup.earlyStartup(EarlyStartup.java:23)
+	at org.eclipse.oomph.internal.ui.EarlyStart.run(EarlyStart.java:119)
+	at org.eclipse.oomph.internal.ui.EarlyStart$1.run(EarlyStart.java:98)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.LinkageError: loader constraint violation: loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @1ac4e860 wants to load class org.apache.hc.client5.http.impl.classic.HttpClientBuilder. A different class with the same name was previously loaded by org.eclipse.osgi.internal.loader.EquinoxClassLoader @3fd879d0. (org.apache.hc.client5.http.impl.classic.HttpClientBuilder is in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @3fd879d0, parent loader 'platform')
+	at java.base/java.lang.Class.getDeclaredConstructors0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:3373)
+	at java.base/java.lang.Class.getConstructors(Class.java:2060)
+	at org.apache.felix.scr.impl.inject.internal.ComponentConstructorImpl.<init>(ComponentConstructorImpl.java:98)
+	at org.apache.felix.scr.impl.inject.internal.ComponentMethodsImpl.initComponentMethods(ComponentMethodsImpl.java:110)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.initDependencyManagers(AbstractComponentManager.java:1029)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.collectDependencies(AbstractComponentManager.java:1057)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getServiceInternal(SingleComponentManager.java:955)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getService(SingleComponentManager.java:920)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse$1.run(ServiceFactoryUse.java:226)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:318)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:223)
+	... 33 more
+
+!ENTRY org.eclipse.oomph.ui 4 0 2024-12-06 10:38:02.577
+!MESSAGE loader constraint violation: loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @1ac4e860 wants to load class org.apache.hc.client5.http.impl.classic.HttpClientBuilder. A different class with the same name was previously loaded by org.eclipse.osgi.internal.loader.EquinoxClassLoader @3fd879d0. (org.apache.hc.client5.http.impl.classic.HttpClientBuilder is in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @3fd879d0, parent loader 'platform')
+!STACK 0
+java.lang.LinkageError: loader constraint violation: loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @1ac4e860 wants to load class org.apache.hc.client5.http.impl.classic.HttpClientBuilder. A different class with the same name was previously loaded by org.eclipse.osgi.internal.loader.EquinoxClassLoader @3fd879d0. (org.apache.hc.client5.http.impl.classic.HttpClientBuilder is in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @3fd879d0, parent loader 'platform')
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient5.Activator.getHttpClientFactory(Activator.java:247)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient5.Activator.registerHttpClient(Activator.java:290)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient5.Activator.getRetrieveHttpClient(Activator.java:281)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransferFactory.newInstance(HttpClientRetrieveFileTransferFactory.java:25)
+	at org.eclipse.ecf.internal.provider.filetransfer.Activator.getFileTransfer(Activator.java:614)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.MultiProtocolRetrieveAdapter.sendRetrieveRequest(MultiProtocolRetrieveAdapter.java:94)
+	at org.eclipse.oomph.setup.internal.core.util.ECFURIHandlerImpl$InputStreamConnectionHandler.sendConnectionRequest(ECFURIHandlerImpl.java:1943)
+	at org.eclipse.oomph.setup.internal.core.util.ECFURIHandlerImpl$ConnectionHandler.process(ECFURIHandlerImpl.java:1642)
+	at org.eclipse.oomph.setup.internal.core.util.ECFURIHandlerImpl.createInputStream(ECFURIHandlerImpl.java:321)
+	at org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl.createInputStream(ExtensibleURIConverterImpl.java:358)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.load(ResourceImpl.java:1314)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.handleArchiveRedirection(SetupCoreUtil.java:696)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.configureResourceSet(SetupCoreUtil.java:474)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.configureResourceSet(SetupCoreUtil.java:268)
+	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.createResourceSet(SetupCoreUtil.java:262)
+	at org.eclipse.oomph.setup.ui.recorder.RecorderManager.<clinit>(RecorderManager.java:121)
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin.performStartup(SetupUIPlugin.java:218)
+	at org.eclipse.oomph.setup.ui.EarlyStartup.earlyStartup(EarlyStartup.java:23)
+	at org.eclipse.oomph.internal.ui.EarlyStart.run(EarlyStart.java:119)
+	at org.eclipse.oomph.internal.ui.EarlyStart$1.run(EarlyStart.java:98)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
