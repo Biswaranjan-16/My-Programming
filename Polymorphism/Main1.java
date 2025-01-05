@@ -1,6 +1,6 @@
 package Polymorphism;
 
-class Main1 {
+class Main{
     // Method to add two integers
     public int add(int a, int b) {
         return a + b;

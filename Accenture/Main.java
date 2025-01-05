@@ -1,6 +1,7 @@
 package Accenture;
 
-import oops.Dog;
+
+
 
 class Animal{
 	public String name;
