@@ -9,7 +9,7 @@ public Ajay(int basesalary,String name,int overtime,int hourlyrate) {
 	this.overtime=overtime;
 }
 public int calculatesalary() {
-	
+
 	return basesalary +(hourlyrate * overtime);
 }
 public void displayinfo() {
