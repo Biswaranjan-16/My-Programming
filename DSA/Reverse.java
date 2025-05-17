@@ -17,6 +17,11 @@ public class Reverse {
 			ans=ans*10+rem;
 		}
 		System.out.println("Reverse of the system "+ans);
+		if(ans==num) {
+			System.out.println("it is a pallendrome number");
+		}else {
+			System.out.println("it is not a pallendrome number");
+		}
 	}
 
 }
